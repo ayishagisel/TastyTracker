@@ -1,7 +1,7 @@
 {
   "name": "tastytracker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Dependencies for the TastyTracker project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,10 +11,15 @@
     "url": "git+https://github.com/ayishagisel/TastyTracker.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Code-along",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/ayishagisel/TastyTracker/issues"
   },
-  "homepage": "https://github.com/ayishagisel/TastyTracker#readme"
+  "homepage": "https://github.com/ayishagisel/TastyTracker#readme",
+  "dependencies": {
+    "npm": "^6.1.0",
+    "tastytracker-demo-pkg": "^1.0.2"
+  },
+  "devDependencies": {}
 }
