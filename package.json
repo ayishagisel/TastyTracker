@@ -8,7 +8,9 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings",
-    "dev": "lite-server"
+    "dev": "lite-server",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -49,7 +51,8 @@
     "tsc": "^1.20150623.0",
     "types": "^0.1.1",
     "typings-core": "^2.3.3",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+    "snyk": "^1.88.2"
   },
   "devDependencies": {
     "@types/core-js": "^2.5.0",
@@ -70,5 +73,6 @@
   "homepage": "https://github.com/ayishagisel/TastyTracker#readme",
   "keywords": [
     "Tutorial"
-  ]
+  ],
+  "snyk": true
 }
