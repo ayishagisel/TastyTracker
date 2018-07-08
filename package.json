@@ -10,7 +10,8 @@
     "typings": "typings",
     "dev": "lite-server",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "test": "snyk test"
   },
   "license": "UNLICENSED",
   "private": true,
