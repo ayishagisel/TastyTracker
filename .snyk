@@ -6,7 +6,6 @@ ignore:
     - bootstrap:
         reason: None given
         expires: '2018-08-07T13:05:32.419Z'
-ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:debug:20170905':
