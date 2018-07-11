@@ -1,0 +1,128 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.12.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:bootstrap:20180529':
+    - bootstrap:
+        reason: None given
+        expires: '2018-08-07T13:05:32.419Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - localtunnel > debug:
+        patched: '2018-07-07T10:30:32.096Z'
+<<<<<<< HEAD
+      browser-sync > localtunnel > debug:
+        patched: '2018-07-09T07:18:02.714Z'
+    - browser-sync > localtunnel > debug:
+        patched: '2018-07-07T10:30:32.096Z'
+      localtunnel > debug:
+        patched: '2018-07-09T07:18:02.714Z'
+=======
+    - browser-sync > localtunnel > debug:
+        patched: '2018-07-07T10:30:32.096Z'
+>>>>>>> 01678872a68af2d3fa78f0faf75f6bc232ccc38e
+    - browser-sync > localtunnel > debug:
+        patched: '2018-07-08T12:38:57.822Z'
+    - localtunnel > debug:
+        patched: '2018-07-08T12:38:57.822Z'
+    - browser-sync > localtunnel > debug:
+        patched: '2018-07-09T06:46:44.430Z'
+    - localtunnel > debug:
+        patched: '2018-07-09T06:46:44.430Z'
+  'npm:hoek:20180212':
+    - npm > npm-lifecycle > node-gyp > request > hawk > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > npm-lifecycle > node-gyp > request > hawk > boom > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > npm-lifecycle > node-gyp > request > hawk > sntp > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > npm-lifecycle > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > node-gyp > request > hawk > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > node-gyp > request > hawk > boom > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > node-gyp > request > hawk > sntp > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > libcipm > npm-lifecycle > node-gyp > request > hawk > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > libcipm > npm-lifecycle > node-gyp > request > hawk > boom > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > libcipm > npm-lifecycle > node-gyp > request > hawk > sntp > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm > libcipm > npm-lifecycle > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-07-07T10:30:32.096Z'
+  'npm:lodash:20180130':
+    - easy-extender > lodash:
+        patched: '2018-07-07T10:30:32.096Z'
+<<<<<<< HEAD
+      cli-table2 > lodash:
+        patched: '2018-07-09T07:18:02.714Z'
+    - cli-table2 > lodash:
+        patched: '2018-07-07T10:30:32.096Z'
+      npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-09T07:18:02.714Z'
+    - npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-07T10:30:32.096Z'
+      browser-sync > easy-extender > lodash:
+        patched: '2018-07-09T07:18:02.714Z'
+    - browser-sync > easy-extender > lodash:
+        patched: '2018-07-07T10:30:32.096Z'
+      npm > cli-table2 > lodash:
+        patched: '2018-07-09T07:18:02.714Z'
+=======
+    - cli-table2 > lodash:
+        patched: '2018-07-07T10:30:32.096Z'
+    - npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-07T10:30:32.096Z'
+    - browser-sync > easy-extender > lodash:
+        patched: '2018-07-07T10:30:32.096Z'
+>>>>>>> 01678872a68af2d3fa78f0faf75f6bc232ccc38e
+    - npm > npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-09T07:18:02.714Z'
+    - npm > cli-table2 > lodash:
+        patched: '2018-07-07T10:30:32.096Z'
+<<<<<<< HEAD
+      easy-extender > lodash:
+        patched: '2018-07-09T07:18:02.714Z'
+=======
+>>>>>>> 01678872a68af2d3fa78f0faf75f6bc232ccc38e
+    - cli-table2 > lodash:
+        patched: '2018-07-08T12:38:57.822Z'
+    - npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-08T12:38:57.822Z'
+    - browser-sync > easy-extender > lodash:
+        patched: '2018-07-08T12:38:57.822Z'
+    - npm > cli-table2 > lodash:
+        patched: '2018-07-08T12:38:57.822Z'
+    - easy-extender > lodash:
+        patched: '2018-07-08T12:38:57.822Z'
+    - cli-table2 > lodash:
+<<<<<<< HEAD
+        patched: '2018-07-09T06:46:44.430Z'
+    - npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-09T06:46:44.430Z'
+    - browser-sync > easy-extender > lodash:
+        patched: '2018-07-09T06:46:44.430Z'
+    - npm > cli-table2 > lodash:
+        patched: '2018-07-09T06:46:44.430Z'
+    - easy-extender > lodash:
+        patched: '2018-07-09T06:46:44.430Z'
+=======
+        patched: '2018-07-09T07:24:48.579Z'
+    - easy-extender > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+    - npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+    - lite-server > browser-sync > easy-extender > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+    - browser-sync > easy-extender > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+    - npm > npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+    - npm > cli-table2 > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+>>>>>>> 01678872a68af2d3fa78f0faf75f6bc232ccc38e
