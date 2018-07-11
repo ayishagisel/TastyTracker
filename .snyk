@@ -6,25 +6,18 @@ ignore:
     - bootstrap:
         reason: None given
         expires: '2018-08-07T13:05:32.419Z'
+ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:debug:20170905':
     - localtunnel > debug:
         patched: '2018-07-07T10:30:32.096Z'
-      browser-sync > localtunnel > debug:
-        patched: '2018-07-09T07:18:02.714Z'
     - browser-sync > localtunnel > debug:
         patched: '2018-07-07T10:30:32.096Z'
-      localtunnel > debug:
-        patched: '2018-07-09T07:18:02.714Z'
     - browser-sync > localtunnel > debug:
         patched: '2018-07-08T12:38:57.822Z'
     - localtunnel > debug:
         patched: '2018-07-08T12:38:57.822Z'
-    - browser-sync > localtunnel > debug:
-        patched: '2018-07-09T06:46:44.430Z'
-    - localtunnel > debug:
-        patched: '2018-07-09T06:46:44.430Z'
   'npm:hoek:20180212':
     - npm > npm-lifecycle > node-gyp > request > hawk > hoek:
         patched: '2018-07-07T10:30:32.096Z'
@@ -53,26 +46,16 @@ patch:
   'npm:lodash:20180130':
     - easy-extender > lodash:
         patched: '2018-07-07T10:30:32.096Z'
-      cli-table2 > lodash:
-        patched: '2018-07-09T07:18:02.714Z'
     - cli-table2 > lodash:
         patched: '2018-07-07T10:30:32.096Z'
-      npm-audit-report > cli-table2 > lodash:
-        patched: '2018-07-09T07:18:02.714Z'
     - npm-audit-report > cli-table2 > lodash:
         patched: '2018-07-07T10:30:32.096Z'
-      browser-sync > easy-extender > lodash:
-        patched: '2018-07-09T07:18:02.714Z'
     - browser-sync > easy-extender > lodash:
         patched: '2018-07-07T10:30:32.096Z'
-      npm > cli-table2 > lodash:
-        patched: '2018-07-09T07:18:02.714Z'
     - npm > npm-audit-report > cli-table2 > lodash:
         patched: '2018-07-09T07:18:02.714Z'
     - npm > cli-table2 > lodash:
         patched: '2018-07-07T10:30:32.096Z'
-      easy-extender > lodash:
-        patched: '2018-07-09T07:18:02.714Z'
     - cli-table2 > lodash:
         patched: '2018-07-08T12:38:57.822Z'
     - npm-audit-report > cli-table2 > lodash:
@@ -84,12 +67,16 @@ patch:
     - easy-extender > lodash:
         patched: '2018-07-08T12:38:57.822Z'
     - cli-table2 > lodash:
-        patched: '2018-07-09T06:46:44.430Z'
-    - npm-audit-report > cli-table2 > lodash:
-        patched: '2018-07-09T06:46:44.430Z'
-    - browser-sync > easy-extender > lodash:
-        patched: '2018-07-09T06:46:44.430Z'
-    - npm > cli-table2 > lodash:
-        patched: '2018-07-09T06:46:44.430Z'
+        patched: '2018-07-09T07:24:48.579Z'
     - easy-extender > lodash:
-        patched: '2018-07-09T06:46:44.430Z'
+        patched: '2018-07-09T07:24:48.579Z'
+    - npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+    - lite-server > browser-sync > easy-extender > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+    - browser-sync > easy-extender > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+    - npm > npm-audit-report > cli-table2 > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
+    - npm > cli-table2 > lodash:
+        patched: '2018-07-09T07:24:48.579Z'
