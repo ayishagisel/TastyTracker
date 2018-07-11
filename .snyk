@@ -17,6 +17,12 @@ patch:
         patched: '2018-07-08T12:38:57.822Z'
     - localtunnel > debug:
         patched: '2018-07-08T12:38:57.822Z'
+    - lite-server > browser-sync > localtunnel > debug:
+        patched: '2018-07-11T05:13:36.053Z'
+    - localtunnel > debug:
+        patched: '2018-07-11T05:13:36.053Z'
+    - browser-sync > localtunnel > debug:
+        patched: '2018-07-11T05:13:36.053Z'
   'npm:hoek:20180212':
     - npm > npm-lifecycle > node-gyp > request > hawk > hoek:
         patched: '2018-07-07T10:30:32.096Z'
@@ -42,6 +48,30 @@ patch:
         patched: '2018-07-07T10:30:32.096Z'
     - npm > libcipm > npm-lifecycle > node-gyp > request > hawk > cryptiles > boom > hoek:
         patched: '2018-07-07T10:30:32.096Z'
+    - npm > npm-lifecycle > node-gyp > request > hawk > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > npm-lifecycle > node-gyp > request > hawk > boom > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > npm-lifecycle > node-gyp > request > hawk > sntp > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > npm-lifecycle > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > node-gyp > request > hawk > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > node-gyp > request > hawk > boom > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > node-gyp > request > hawk > sntp > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > libcipm > npm-lifecycle > node-gyp > request > hawk > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > libcipm > npm-lifecycle > node-gyp > request > hawk > boom > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > libcipm > npm-lifecycle > node-gyp > request > hawk > sntp > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > libcipm > npm-lifecycle > node-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2018-07-11T05:13:36.053Z'
   'npm:lodash:20180130':
     - easy-extender > lodash:
         patched: '2018-07-07T10:30:32.096Z'
@@ -79,3 +109,13 @@ patch:
         patched: '2018-07-09T07:24:48.579Z'
     - npm > cli-table2 > lodash:
         patched: '2018-07-09T07:24:48.579Z'
+    - cli-table2 > lodash:
+        patched: '2018-07-11T05:13:36.053Z'
+    - easy-extender > lodash:
+        patched: '2018-07-11T05:13:36.053Z'
+    - lite-server > browser-sync > easy-extender > lodash:
+        patched: '2018-07-11T05:13:36.053Z'
+    - browser-sync > easy-extender > lodash:
+        patched: '2018-07-11T05:13:36.053Z'
+    - npm > cli-table2 > lodash:
+        patched: '2018-07-11T05:13:36.053Z'
