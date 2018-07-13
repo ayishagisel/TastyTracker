@@ -81,6 +81,7 @@ export class MealService {
       } // if a TTM_ key
     } // for each key
 
+    meals.sort(this.compare);
     return meals;
   }
 
@@ -107,6 +108,22 @@ export class MealService {
   }
 
   deleteByRestaurant(id: number): void {
+    for (var x = 0; x < localStorage.length; x++) {
+      let key = localStorage.key(x);
+      let re = /^TTM_\d\d\d\d\d\d\d\d_\w_(\d+)/;
+      let results: Array<string>;
+      if ((results = re.exec(key)) !== null) {
+        if (parseInt(results[1]) === id) {
+          localStorage.removeItem(key);
+        }
+      }
+    }
+  }
+
+  compare(a: Meal, b: Meal): number {
+    if (a.date < b.date) { return -1; }
+    if (a.date > b.date) { return 1; }
+    return 0;
   }
 
 }

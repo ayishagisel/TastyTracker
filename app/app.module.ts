@@ -12,6 +12,7 @@ import { MealEntryComponent } from './meal-entry.component';
 import { MealListComponent } from './meal-list.component';
 import { TotalsComponent } from './totals.component';
 import { TrendsComponent } from './trends.component';
+import { DatepickerComponent } from './datepicker.component';
 
 import { DateDisplayPipe } from './date-display.pipe';
 
@@ -22,9 +23,9 @@ import { DateDisplayPipe } from './date-display.pipe';
                   MealListComponent,
                   TotalsComponent,
                   TrendsComponent,
+                  DatepickerComponent,
                   DateDisplayPipe ],
   providers:    [ MealService, RestaurantService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {}
-

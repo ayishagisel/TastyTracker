@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, ViewChild } from '@angular/core';
 
 import * as moment from 'moment';
 
@@ -7,7 +7,8 @@ import { MealService } from './meal.service';
 
 @Component({
   selector: 'trends',
-  templateUrl: 'app/trends.component.html'
+  templateUrl: 'app/trends.component.html',
+  styleUrls: [ 'app/trends.component.css' ]
 })
 export class TrendsComponent implements OnChanges {
   @Input() thumper: number;
@@ -18,17 +19,28 @@ export class TrendsComponent implements OnChanges {
   lunchAverage: number = 0;
   dinnerAverage: number = 0;
   snackAverage: number = 0;
+  @ViewChild('graphDiv1') graphDiv1: any;
+  @ViewChild('graphDiv2') graphDiv2: any;
+  weekBar1: string;
+  weekBar2: string;
+  mealBar1: string;
+  mealBar2: string;
+  mealBar3: string;
+  mealBar4: string;
 
   constructor(private mealService: MealService) {}
 
   ngOnChanges(): void {
     this.getTotals();
     this.getAverages();
+    this.initWeeklyGraph();
+    this.initAverageGraph();
   }
 
   onSelect(interval: string): void {
     this.averageInterval = interval;
     this.getAverages();
+    this.initAverageGraph();
   }
 
   getTotals(): void {
@@ -177,6 +189,83 @@ export class TrendsComponent implements OnChanges {
       curSum = curSum + parseFloat(meals[m].amount);
     }
     return curSum;
+  }
+
+  initWeeklyGraph(): void {
+    let maxWidth: number;
+    let thisWeek: number = this.totalThisWeek;
+    let lastWeek: number = this.totalLastWeek;
+    let larger: number;
+    let unit: number;
+    let bar1width: number;
+    let bar2width: number;
+
+    maxWidth = this.graphDiv1.nativeElement.offsetWidth;
+    maxWidth = maxWidth - 150; // to allow for legend and amount
+    console.log('maxWidth', maxWidth);
+
+    if (thisWeek >= lastWeek) { larger = thisWeek; }
+    else { larger = lastWeek; }
+    if (larger === 0) { larger = 1; }
+
+    // If the larger amount is greater than the max width, we need to divide
+    // both week's amounts by two and try again (rescaling the graph).
+    // Ultimately we need 'unit' to be 1 or greater.
+    while (larger > maxWidth) {
+      thisWeek = Math.floor(thisWeek / 2);
+      lastWeek = Math.floor(lastWeek / 2);
+      larger = Math.floor(larger / 2);
+    }
+    unit = Math.floor(maxWidth / larger);
+
+    bar1width = Math.floor(thisWeek * unit);
+    this.weekBar1 = bar1width.toString() + "px";
+    bar2width = Math.floor(lastWeek * unit);
+    this.weekBar2 = bar2width.toString() + "px";
+    console.log('unit', unit, 'rects', bar1width, bar2width);
+  }
+
+  initAverageGraph(): void {
+    let maxWidth: number;
+    let breakfast: number = this.breakfastAverage;
+    let lunch: number = this.lunchAverage;
+    let dinner: number = this.dinnerAverage;
+    let snacks: number = this.snackAverage;
+    let largest: number;
+    let unit: number;
+    let bar1width: number;
+    let bar2width: number;
+    let bar3width: number;
+    let bar4width: number;
+
+    maxWidth = this.graphDiv2.nativeElement.offsetWidth;
+    maxWidth = maxWidth - 150;
+    console.log('maxWidth', maxWidth);
+
+    if (breakfast >= lunch) { largest = breakfast; }
+    else { largest = lunch; }
+    if (largest < dinner) { largest = dinner; }
+    if (largest < snacks) { largest = snacks; }
+    if (largest === 0) { largest = 1; }
+
+    while (largest > maxWidth) {
+      breakfast = Math.floor(breakfast / 2);
+      lunch = Math.floor(lunch / 2);
+      dinner = Math.floor(dinner / 2);
+      snacks = Math.floor(snacks / 2);
+      largest = Math.floor(largest / 2);
+    }
+
+    unit = Math.floor(maxWidth / largest);
+    bar1width = Math.floor(breakfast * unit);
+    this.mealBar1 = bar1width.toString() + "px";
+    bar2width = Math.floor(lunch * unit);
+    this.mealBar2 = bar2width.toString() + "px";
+    bar3width = Math.floor(dinner * unit);
+    this.mealBar3 = bar3width.toString() + "px";
+    bar4width = Math.floor(snacks * unit);
+    this.mealBar4 = bar4width.toString() + "px";
+    console.log('unit', unit, 'rects', bar1width, bar2width, bar3width, bar4width);
   }
 
 }

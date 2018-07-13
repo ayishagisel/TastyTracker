@@ -23,6 +23,7 @@ export class RestaurantService {
    }
     }
 
+    rests.sort(this.compare);
     return rests;
   }
 
@@ -72,4 +73,9 @@ export class RestaurantService {
     return null;
   }
 
+  compare(a: Restaurant, b: Restaurant): number {
+    if (a.name < b.name) { return -1; }
+    if (a.name > b.name) { return 1; }
+    return 0;
+  }
 }

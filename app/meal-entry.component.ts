@@ -13,7 +13,15 @@ import { RestaurantService } from './restaurant.service';
   templateUrl: 'app/meal-entry.component.html'
 })
 export class MealEntryComponent implements OnInit {
-  showRestDiv = false;
+  showAddDiv = false;
+  editingEnabled = false;
+  showConfirmDiv = false;
+  showDateDiv = false;
+  invalidAmount = false;
+  invalidAmtMessage = '';
+  invalidRestaurant = false;
+  invalidDate = false;
+  invalidDateMessage = '';
   selectedRestaurant = '';
   meal = new Meal;
   restaurants: Restaurant[];
@@ -21,7 +29,7 @@ export class MealEntryComponent implements OnInit {
 
   constructor(private router: Router,
               private restaurantService: RestaurantService,
-              private mealService: MealService) {}
+              private mealService: MealService ) {}
 
   ngOnInit(): void {
     let curdate = moment().format('MM/DD/YYYY');
@@ -37,10 +45,13 @@ export class MealEntryComponent implements OnInit {
     console.log('select', numValue, label);
     if (numValue > 0) {
       this.selectedRestaurant = label;
+      this.editingEnabled = true;
     }
     else {
       this.selectedRestaurant = '';
+      this.editingEnabled = false;
     }
+    this.showConfirmDiv = false; // hide the delete confirmation if the selection changes
     this.meal.location = numValue;
   }
 
@@ -48,63 +59,81 @@ export class MealEntryComponent implements OnInit {
     let numID = parseInt(id);
     let newrest = new Restaurant;
 
+    if (!name) {
+      return null;
+    }
+
     console.log('update', numID, name);
     newrest = this.restaurantService.update(numID, name);
     this.restaurants = this.restaurantService.getList();
     this.meal.location = newrest.id;
     this.selectedRestaurant = name;
-    this.showRestDiv = false;
   }
 
   add(name: string): void {
     let newrest = new Restaurant;
+
+    if (!name) {
+      return null;
+    }
 
     console.log('add', name);
     newrest = this.restaurantService.create(name);
     this.restaurants.push(newrest);
     this.meal.location = newrest.id;
     this.selectedRestaurant = name;
-    this.showRestDiv = false;
-  }
+    this.showAddDiv = false;
+    this.editingEnabled = true;
+ }
 
   delete(id: string): void {
     let numID = parseInt(id);
 
     console.log('delete', numID);
     this.restaurantService.delete(numID);
-    // Also need to delete all meals for this restaurant, a meal service call
+    this.mealService.deleteByRestaurant(numID);
     this.restaurants = this.restaurantService.getList();
     this.meal.location = 0;
     this.selectedRestaurant = '';
-    this.showRestDiv = false;
+    this.editingEnabled = false;
   }
 
-  // Need to replace console logging with user-visible error indications
   save(): void {
     let mydate = moment(this.meal.date, 'MM/DD/YYYY');
     let newdate = '';
     let amtAsNum = parseFloat(this.meal.amount);
 
+    this.invalidAmount = false;
+    this.invalidRestaurant = false;
+    this.invalidDate = false;
+
     if (isNaN(amtAsNum)) {
-      console.log('amount is empty or not a number');
+      this.invalidAmount = true;
+      this.invalidAmtMessage = 'Please enter an amount';
       return null;
     }
     else {
       if (amtAsNum <= 0) {
-        console.log('amount must be positive/nonzero');
+        this.invalidAmount = true;
+        this.invalidAmtMessage = 'Please enter an amount greater than zero';
         return null;
       }
     }
     if (!this.meal.name) {
-      console.log('invalid meal type');
       return null;
     }
     if (!this.meal.location) {
-      console.log('invalid restaurant');
+      this.invalidRestaurant = true;
       return null;
     }
-    if (!this.meal.date || !mydate.isValid()) {
-      console.log('invalid date');
+    if (!this.meal.date) {
+      this.invalidDate = true;
+      this.invalidDateMessage = 'Please enter a date (MM/DD/YYYY)';
+      return null;
+    }
+    if (!mydate.isValid()) {
+      this.invalidDate = true;
+      this.invalidDateMessage = 'Please enter a valid date (MM/DD/YYYY)';
       return null;
     }
 
@@ -124,8 +153,25 @@ export class MealEntryComponent implements OnInit {
     this.thumper++;
   }
 
-  showRestaurants(): void {
-    this.showRestDiv = !this.showRestDiv;
+  toggleAdd(): void {
+    this.showAddDiv = !this.showAddDiv;
+  }
+
+  toggleConfirm(): void {
+    this.showConfirmDiv = !this.showConfirmDiv;
+  }
+
+  toggleDatepicker(): void {
+    this.showDateDiv = !this.showDateDiv;
+  }
+
+  setDate(newdate: string): void {
+    if (this.meal.date !== newdate) {
+       this.meal.date = newdate;
+       this.toggleDatepicker();
+       // Use this slight runaround instead of just setting showDateDiv
+       // or you'll get problems with a binding changed after page check
+    }
   }
 
   gotoList(): void {
@@ -133,4 +179,3 @@ export class MealEntryComponent implements OnInit {
   }
 
 }
-

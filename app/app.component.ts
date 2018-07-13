@@ -3,9 +3,15 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-main',
   template: `
-            <header style="background-color: #00746B">
-            <h1>{{title}}</h1>
-            </header>
+      <section>
+              <div class="row">
+                <div class="col-xs-12 text-xs-center tealBG">
+                  <header role="banner">
+                    <h1>TastyTracker</h1>
+                  </header>
+                </div>
+              </div>
+            </section>
 
             <router-outlet></router-outlet>
             `

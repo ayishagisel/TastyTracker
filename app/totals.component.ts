@@ -27,7 +27,7 @@ export class TotalsComponent implements OnChanges {
     this.totalToday = this.sumMeals(curdate);
 
     this.totalThisWeek = this.totalToday;
-    for (let i = 0; i < 7; i++) {
+    for (let i = 1; i < 7; i++) {
       let curDailySum: number = 0;
       workdate.subtract(1, 'days');
       curdate = workdate.format('YYYYMMDD');
