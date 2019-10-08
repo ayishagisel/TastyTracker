@@ -36,7 +36,7 @@
     "easy-extender": "^2.3.2",
     "hoek": "^5.0.3",
     "http-proxy-agent": "^2.1.0",
-    "https-proxy-agent": "^2.2.1",
+    "https-proxy-agent": "^3.0.0",
     "jquery": "^3.3.1",
     "jsonfile": "^4.0.0",
     "localtunnel": "1.9.0",
