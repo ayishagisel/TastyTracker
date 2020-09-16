@@ -28,7 +28,7 @@
     "anymatch": "^2.0.0",
     "bootstrap": "^4.1.2",
     "braces": "^2.3.2",
-    "browser-sync": "^2.24.6",
+    "browser-sync": "^2.26.9",
     "chokidar": "^2.0.4",
     "cli-table2": "^0.2.0",
     "core-js": "^2.5.3",
@@ -58,7 +58,7 @@
     "tsc": "^1.20150623.0",
     "types": "^0.1.1",
     "typings-core": "^2.3.3",
-    "ua-parser-js": "^0.7.18",
+    "ua-parser-js": "^0.7.22",
     "useragent": "^2.3.0",
     "zone.js": "^0.7.2"
   },
