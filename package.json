@@ -65,7 +65,7 @@
   "devDependencies": {
     "@types/core-js": "^2.5.0",
     "concurrently": "^3.6.0",
-    "lite-server": "2.4.0",
+    "lite-server": "2.6.0",
     "typescript": "^2.9.2",
     "typings": "^2.1.1"
   },
